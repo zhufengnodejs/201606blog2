@@ -48,6 +48,22 @@ router.post('/reg', function (req, res, next) {
 router.get('/login', function (req, res, next) {
     res.render('user/login', {title: '用户登录'});
 });
+router.post('/login', function (req, res, next) {
+    var user = req.body;
+    user.password = util.md5(user.password);
+    Model('User').findOne(user)
+        .then(function(doc){
+        if(doc){
+            req.flash('success','登录成功');
+            res.redirect('/');
+        }else{
+            return Promise.reject('登录失败!');
+        }
+      }).catch(function(err){
+        req.flash('error',err);
+        res.redirect('back');
+    });
+});
 //退出
 router.get('/logout', function (req, res, next) {
     res.redirect('/');
