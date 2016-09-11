@@ -3,7 +3,7 @@
 npm install -g express-generator
 ```
 > 如果安装以后执行express命令报错，则需要把express命令所在的目录添加到环境变量PATH中去
-![百度](images/menu.jpg)
+![查看路径](images/menu.jpg)
 
 > 在命令提示符中输入path命令，即可查看当前配置的环境变量
 

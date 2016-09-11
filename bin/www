@@ -1,15 +1,21 @@
 #!/usr/bin/env node
-
+//表示此脚本将要使用node来运行
 /**
  * Module dependencies.
  */
-
+//引用应用文件
 var app = require('../app');
+//用来写日志 debug=console.log
 var debug = require('debug')('201606blog:server');
+// 引用户http模块
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
+ * 从环境变量中得到端口并且保存到Express中
+ * process 代表当前的进程
+ * env代表当前进程中的环境变量对象
+ * 默认会获取环境变量中的端口，如果没获取到就使用3000
  */
 
 var port = normalizePort(process.env.PORT || '3000');
@@ -17,16 +23,21 @@ app.set('port', port);
 
 /**
  * Create HTTP server.
+ * 创建一个http服务器
+ * app 其实是一个函数，当请求到来的时候会执行此监听函数
  */
 
 var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
+ * 监听提供的端口
  */
 
 server.listen(port);
+//当启动失败调用失败的监听
 server.on('error', onError);
+//如果启动成功执行成功的监听 
 server.on('listening', onListening);
 
 /**
