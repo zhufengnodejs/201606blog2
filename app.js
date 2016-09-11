@@ -12,8 +12,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-
+var user = require('./routes/user');
+//导入文章路由模块
+var article = require('./routes/article');
 var app = express();
 
 // view engine setup  设置模板引擎
@@ -41,8 +42,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 第一个参数表示以这个路径开头
 app.use('/', routes);
 //       /users/add
-app.use('/users', users);
-
+app.use('/user', user);
+app.use('/article', article);
 // catch 404 and forward to error handler
 // 捕获404错误并转到错误处理中间件
 // 如果走到这里意味着静态文件中间件，路由也没有匹配上
