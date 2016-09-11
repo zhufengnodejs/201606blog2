@@ -6,11 +6,7 @@ var router = express.Router();
 router.get('/reg', function (req, res, next) {
     //相对于views的相对路径
 
-    res.render('user/reg', {title: '用户注册',
-        //消息一旦取出则清除
-         success:req.flash('success').toString(),
-         error:req.flash('error').toString()
-    });
+    res.render('user/reg', {title: '用户注册'});
 });
 //提交用户的注册表单
 router.post('/reg', function (req, res, next) {

@@ -48,6 +48,13 @@ app.use(session({
 }));
 //使用flash插件之后 req.flash
 app.use(flash());
+app.use(function(req,res,next){
+  //消息一旦取出则清除
+  //真正渲染模板的对象是res.locals
+  res.locals.success = req.flash('success').toString();
+  res.locals.error = req.flash('error').toString();
+  next();
+});
 //静态文件中间件 当请求到来的时候先去public目录下找，找到
 //就返回，找不到则则继续next
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,12 +1,5 @@
 <%- include ../include/header.html%>
-<div class="alert alert-success">
-    <%=success%>
-</div>
-<div class="alert alert-danger">
-    <%=error%>
-</div>
-<div class="container">
-    <form action="/user/reg" method="post">
+<form action="/user/reg" method="post">
         <div class="form-group">
             <label for="username">用户名</label>
             <input class="form-control" type="text" name="username" id="username">
@@ -25,5 +18,5 @@
         </div>
         <button class="btn btn-primary" type="submit">提交</button>
     </form>
-</div>
+
 <%- include ../include/footer.html%>
