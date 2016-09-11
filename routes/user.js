@@ -23,9 +23,10 @@ router.post('/reg', function (req, res, next) {
     Model('User').findOne({username: user.username})
         .then(function (userDb) {
             if (userDb) {
-                // 如果有同名的记录，则注册失败，编写一个错误提示
-                req.flash('error','此用户名已经被占用!');
-                return res.redirect('back');
+               /* // 如果有同名的记录，则注册失败，编写一个错误提示
+                req.flash('error','此用户名已经被占用!');*/
+                //不管返回什么东西，都会包装成一个promise
+                return Promise.reject('此用户名已经被占用');
             } else {
                 return Model('User').create(user);
             }
