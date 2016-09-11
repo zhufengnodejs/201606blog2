@@ -20,7 +20,7 @@ var app = express();
 // view engine setup  设置模板引擎
 //设置模板的存放目录
 app.set('views', path.join(__dirname, 'views'));
-//设置模板引擎
+//设置模板引擎为html
 app.set('view engine', 'html');
 //如果是html模板，使用ejs的方法来进行渲染
 app.engine('html',require('ejs').__express);

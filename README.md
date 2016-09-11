@@ -39,3 +39,28 @@ lib
 ```
 
 ```
+
+## 7. 初始化bower
+bower 是用来安装前端框架的 bootstrap jquery angular
+```
+npm install bower -g
+
+bower init
+
+```
+> 初始化完毕后会在当前项目下增加一个`bower.json`配置文件
+
+## 8. 创建bower配置文件
+在项目的根目录下创建 .bowerrc 文件,填入以下内容
+directory指定下载下来的包(bootstrap)的安装的目录
+```
+{
+  "directory":"./public/lib"
+}
+```
+## 9. 下载bootstrap到lib目录
+```
+bower install bootstrap --save
+```
+
+
