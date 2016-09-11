@@ -2,6 +2,7 @@
  * 定义model和schema
  */
 var mongoose = require('mongoose');
+mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/201606blog');
 //创建用户的schema 记录用户的 用户名 邮箱 头像 密码
 var UserSchema = new mongoose.Schema({
