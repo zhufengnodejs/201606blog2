@@ -21,8 +21,9 @@ var app = express();
 //设置模板的存放目录
 app.set('views', path.join(__dirname, 'views'));
 //设置模板引擎
-app.set('view engine', 'ejs');
-
+app.set('view engine', 'html');
+//如果是html模板，使用ejs的方法来进行渲染
+app.engine('html',require('ejs').__express);
 // uncomment after placing your favicon in /public
 //当客户端访问 /favicon.ico路径的时候，返回 public/favicon.ico文件
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
