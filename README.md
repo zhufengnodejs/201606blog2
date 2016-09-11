@@ -36,18 +36,23 @@ lib
 - .idea 是webstorm的配置文件
 
 ## 6.路由、文件名、模板等都要去掉s
-```
 
-```
 
 ## 7. 初始化bower
 bower 是用来安装前端框架的 bootstrap jquery angular
+
+bower 用途
+
+1. 自动下载对应的软件
+2. 自动分析出当前的包依赖的模块，自动安装依赖的模块
+3. 可能自行处理版本冲突
+
 ```
 npm install bower -g
 
 bower init
-
 ```
+
 > 初始化完毕后会在当前项目下增加一个`bower.json`配置文件
 
 ## 8. 创建bower配置文件
