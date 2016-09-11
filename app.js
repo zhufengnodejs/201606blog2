@@ -10,7 +10,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 //解析请求体的 req.body
 var bodyParser = require('body-parser');
-
+require('./db');
 var routes = require('./routes/index');
 var user = require('./routes/user');
 //导入文章路由模块

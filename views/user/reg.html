@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><%=title%></title>
-</head>
-<body>
-注册用户
-</body>
-</html>
+<%- include ../include/header.html%>
+<div class="container">
+    <form action="/user/reg" method="post">
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input class="form-control" type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input class="form-control" type="password" name="password" id="password">
+        </div>
+        <div class="form-group">
+            <label for="repassword">重复密码</label>
+            <input class="form-control" type="password" name="repassword" id="repassword">
+        </div>
+        <div class="form-group">
+            <label for="email">邮箱</label>
+            <input class="form-control" type="email" name="email" id="email">
+        </div>
+        <button class="btn btn-primary" type="submit">提交</button>
+    </form>
+</div>
+<%- include ../include/footer.html%>
