@@ -17,6 +17,7 @@ var routes = require('./routes/index');
 var user = require('./routes/user');
 //导入文章路由模块
 var article = require('./routes/article');
+var flash = require('connect-flash');
 var app = express();
 
 // view engine setup  设置模板引擎
@@ -45,6 +46,8 @@ app.use(session({
   saveUninitialized:true,//保存示初始化的session
   secret:'zfpx'
 }));
+//使用flash插件之后 req.flash
+app.use(flash());
 //静态文件中间件 当请求到来的时候先去public目录下找，找到
 //就返回，找不到则则继续next
 app.use(express.static(path.join(__dirname, 'public')));
