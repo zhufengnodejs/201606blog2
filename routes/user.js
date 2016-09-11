@@ -20,13 +20,14 @@ router.post('/reg', function(req, res, next) {
   Model('User').findOne({username:user.username})
       .then(function(userDb){
          if(userDb){
-           //编写一个错误提示
+           // 如果有同名的记录，则注册失败，编写一个错误提示
            return res.redirect('back');
          }else{
            return  Model('User').create(user);
          }
       })
       .then(function(doc){
+          req.session.user = doc;//给当前用户的会话赋一个user属性
         //写入sessoin
         //返回客户端
         res.redirect('/');

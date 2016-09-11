@@ -8,6 +8,8 @@ var logger = require('morgan');
 //解析cookie req.cookies>它会把请求头中cookie取出来，name=zfpx; age=6,
 //然后把它转成对象，赋给req.cookies ,使用querystring.parse模块转换
 var cookieParser = require('cookie-parser');
+//引入session中间件
+var session = require('express-session');
 //解析请求体的 req.body
 var bodyParser = require('body-parser');
 require('./db');
@@ -37,6 +39,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 //解析cookie
 app.use(cookieParser());
+//使用了session中间件之后，会多了一个 req.session 对象属性
+app.use(session({
+  resave:true,//每次请求都要重新保存session
+  saveUninitialized:true,//保存示初始化的session
+  secret:'zfpx'
+}));
 //静态文件中间件 当请求到来的时候先去public目录下找，找到
 //就返回，找不到则则继续next
 app.use(express.static(path.join(__dirname, 'public')));
